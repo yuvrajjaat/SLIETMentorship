@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIET Mentorship Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for bell icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>SLIET Mentorship Platform</h1>
+        <p>Connect with faculty mentors for academic and career guidance</p>
+        <!-- Notification Bell Icon -->
+        <div id="notificationBell" class="bell">
+            <i class="fa fa-bell"></i>
+            <span id="notificationCounter" class="badge"></span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a class="nav-link active" data-tab="home">Home</a></li>
+            <li><a class="nav-link" data-tab="mentors">Find Mentors</a></li>
+            <li><a class="nav-link" data-tab="bookings">My Bookings</a></li>
+            <li><a class="nav-link" data-tab="messages">Messages</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="tab-content active">
+            <div class="section-header">
+                <h2>Welcome to SLIET Mentorship</h2>
+                <p>Book one-on-one sessions with faculty mentors for personalized guidance</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Expert Faculty Mentors</h3>
+                    <p>Connect with experienced professors from various departments</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Easy Booking</h3>
+                    <p>Schedule sessions with your preferred mentors based on their availability</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Direct Communication</h3>
+                    <p>Exchange messages with mentors before your sessions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mentors Section -->
+        <section id="mentors" class="tab-content">
+            <div class="section-header">
+                <h2>Our Faculty Mentors</h2>
+                <p>Choose a mentor and book a session</p>
+            </div>
+            <div class="faculty-grid"></div>
+        </section>
+
+        <!-- Bookings Section -->
+        <section id="bookings" class="tab-content">
+            <div class="section-header">
+                <h2>My Booked Sessions</h2>
+            </div>
+            <div id="bookingsList"></div>
+        </section>
+
+        <!-- Messages Section -->
+<section id="messages" class="tab-content">
+    <div class="section-header">
+        <h2>Messages</h2>
+    </div>
+    <div class="chat-container">
+        <!-- Mentor selection list -->
+        <div>
+            <label for="mentorSelect">Select a Mentor:</label>
+            <select id="mentorSelect">
+              <!-- Mentor options will be dynamically added here -->
+            </select>
+          </div>
+        <!-- Chat Messages and Input -->
+        <div class="chat-box">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages with the selected mentor will be displayed here -->
+            </div>
+            <div class="chat-input">
+                <textarea id="messageInput" placeholder="Type your message..."></textarea>
+                <button class="btn btn-primary" id="sendMessage">Send</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- New Notifications Section -->
+        <section id="notifications" class="tab-content">
+            <div class="section-header">
+                <h2>Notifications</h2>
+            </div>
+            <div id="notificationList"></div>
+            <div class="section-header">
+                <h3>Upcoming Bookings</h3>
+            </div>
+            <div id="upcomingBookings"></div>
+        </section>
+    </main>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book a Session</h2>
+            <form id="bookingForm">
+                <input type="hidden" id="facultyId">
+                <div class="form-group">
+                    <label for="studentName">Your Name:</label>
+                    <input type="text" id="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time Slot:</label>
+                    <select id="time" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="topic">Discussion Topic:</label>
+                    <textarea id="topic" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Book Session</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Display -->
+    <div id="notification" class="notification"></div>
+
+    <!-- JS Script -->
+    <script src="script.js"></script>
+</body>
+</html>
